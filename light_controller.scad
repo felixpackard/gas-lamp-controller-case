@@ -15,7 +15,7 @@
 ***********************/
 
 // Libraries
-include <arduino_mounting/arduino.scad>
+include <arduino.scad>
 
 /********
 * Project options
