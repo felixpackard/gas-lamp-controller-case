@@ -130,14 +130,14 @@ module enclosure(boardType = UNO, wall = 3, offset = 3, heightExtension = 10, co
       }
       
       //Holes for lid clips
-      translate([0, enclosureDepth * 0.75 - (offset + wall), enclosureHeight]) {
+      translate([0, enclosureDepth * 0.75 - (offset + wall) + 2.5, enclosureHeight]) {
         translate([-offset, 0, 0])
           rotate([0, 180, 90]) clipHole(clipHeight = 10, holeDepth = wall + 0.2);
         translate([offset + boardDim[0], 0, 0])
           rotate([0, 180, 270]) clipHole(clipHeight = 10, holeDepth = wall + 0.2);
       }
     
-      translate([0, enclosureDepth * 0.25 - (offset + wall), enclosureHeight]) {
+      translate([0, enclosureDepth * 0.25 - (offset + wall) + 2.5, enclosureHeight]) {
         translate([-offset, 0, 0])
           rotate([0, 180, 90]) clipHole(clipHeight = 10, holeDepth = wall + 0.2);
         translate([offset + dimensions[0], 0, 0])
@@ -153,7 +153,6 @@ module enclosure(boardType = UNO, wall = 3, offset = 3, heightExtension = 10, co
 //Create a snap on lid for enclosure
 module enclosureLid( boardType = UNO, wall = 3, offset = 3, cornerRadius = 3, ventHoles = false) {
   dimensions = boardDimensions(boardType);
-  boardDim = boardDimensions(boardType);
   pcbDim = pcbDimensions(boardType);
 
   enclosureWidth = pcbDim[0] + (wall + offset) * 2;
@@ -167,14 +166,14 @@ module enclosureLid( boardType = UNO, wall = 3, offset = 3, cornerRadius = 3, ve
         boundingBox(boardType = boardType, height = wall * 0.5, offset = offset - 0.5, include=PCB, cornerRadius = wall);
     
       //Lid clips
-      translate([0, enclosureDepth * 0.75 - (offset + wall), 0]) {
+      translate([0, enclosureDepth * 0.75 - (offset + wall) + 2.5, 0]) {
         translate([-offset + 0.5, 0, 0])
           rotate([0, 180, 90]) clip(clipHeight = 10);
-        translate([offset + boardDim[0] - 0.5, 0, 0])
+        translate([offset + dimensions[0] - 0.5, 0, 0])
           rotate([0, 180, 270]) clip(clipHeight = 10);
       }
     
-      translate([0, enclosureDepth * 0.25 - (offset + wall), 0]) {
+      translate([0, enclosureDepth * 0.25 - (offset + wall) + 2.5, 0]) {
         translate([-offset + 0.5, 0, 0])
           rotate([0, 180, 90]) clip(clipHeight = 10);
         translate([offset + dimensions[0] - 0.5, 0, 0])
@@ -220,7 +219,7 @@ module boundingBox(boardType = UNO, offset = 0, height = 0, cornerRadius = 0, in
 
   dimensions = [
         dim[0] + offset * 2, 
-        dim[1] + offset * 2, 
+        dim[1] + offset * 2 + 5, 
         (height == 0 ? dim[2] + offset * 2 : height)
         ];
 

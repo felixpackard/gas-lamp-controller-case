@@ -83,7 +83,7 @@ button_cutout_radius = 8 / 2;
 button_spacing = 14;
 
 // How far from the center of the lid the buttons should be
-button_distance_from_center = 18;
+screen_and_button_offset = 10;
 
 // The position of the board module
 board_position = boardPosition();
@@ -140,7 +140,7 @@ lid_position = [0, 0, board_dimensions[2] + standoff_height + height_extension +
 // ...might want to look into how I can calculate this properly
 
 // The position of the center of the lid module
-lid_center = [pcb_dimensions[0] / 2, pcb_dimensions[1] / 2, -2];
+lid_center = [pcb_dimensions[0] / 2, (pcb_dimensions[1] + 5) / 2, -2];
 
 // Constants
 vector_zero = [0, 0, 0];
@@ -165,7 +165,7 @@ if (show_screen) {
 	translate(lid_position)
 	translate(explode ? [0, 0, 40] : vector_zero)
 	translate([
-		lid_center[0] - screen_height / 2 - screen_height_offset,
+		(lid_center[0] - screen_and_button_offset) - screen_height / 2 - screen_height_offset,
 		lid_center[1] - screen_width / 2 - screen_width_offset,
 		-3.8
 	])
@@ -205,7 +205,7 @@ module powerConnectionCutout(position, radius) {
 
 module buttonCutoutArray() {
 	translate([
-		lid_center[0] + button_distance_from_center,
+		lid_center[0] + screen_and_button_offset,
 		lid_center[1],
 		0
 	]) {
@@ -255,7 +255,7 @@ module screen() {
 module screenCutout() {
 	// Screen position and dimensions
 	cutout_position = [
-		lid_center[0] - screen_display_height / 2,
+		lid_center[0] - screen_and_button_offset - screen_display_height / 2,
 		lid_center[1] - screen_display_width / 2,
 		lid_center[2]
 	];
@@ -273,7 +273,8 @@ module screenClips() {
 	edge_offset = 0.5;
 	z_offset = 0.6;
 	
-	translate(lid_center) {
+	//translate(lid_center) {
+	translate([lid_center[0] - screen_and_button_offset, lid_center[1], lid_center[2]]) {
 		// Clip 1 (-x -y)
 		translate([
 			-screen_height / 2 - edge_offset - screen_height_offset,
