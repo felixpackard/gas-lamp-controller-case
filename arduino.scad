@@ -145,7 +145,7 @@ module enclosure(boardType = UNO, wall = 3, offset = 3, heightExtension = 10, co
       }   
     }
     translate([0, 0, wall]) {
-      standoffs(boardType = boardType, height = standOffHeight, mountType = mountType);
+      standoffs(boardType = boardType, height = standOffHeight, mountType = mountType, holeRadius = 2.6 / 2);
     }
   }
 }
