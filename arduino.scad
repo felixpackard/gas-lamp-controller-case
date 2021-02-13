@@ -160,7 +160,7 @@ module enclosureLid( boardType = UNO, wall = 3, offset = 3, cornerRadius = 3, ve
 
   difference() {
     union() {
-      boundingBox(boardType = boardType, height = wall, offset = wall + offset, include=PCB, cornerRadius = wall);
+      boundingBox(boardType = boardType, height = 2.5, offset = wall + offset, include=PCB, cornerRadius = wall);
 
       translate([0, 0, -wall * 0.5])
         boundingBox(boardType = boardType, height = wall * 0.5, offset = offset - 0.5, include=PCB, cornerRadius = wall);
