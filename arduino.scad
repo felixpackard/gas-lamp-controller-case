@@ -168,16 +168,16 @@ module enclosureLid( boardType = UNO, wall = 3, offset = 3, cornerRadius = 3, ve
       //Lid clips
       translate([0, enclosureDepth * 0.75 - (offset + wall) + 2.5, 0]) {
         translate([-offset + 0.5, 0, 0])
-          rotate([0, 180, 90]) clip(clipHeight = 10);
+          rotate([0, 180, 90]) clip(clipHeight = 10, clipDepth = 4);
         translate([offset + dimensions[0] - 0.5, 0, 0])
-          rotate([0, 180, 270]) clip(clipHeight = 10);
+          rotate([0, 180, 270]) clip(clipHeight = 10, clipDepth = 4);
       }
     
       translate([0, enclosureDepth * 0.25 - (offset + wall) + 2.5, 0]) {
         translate([-offset + 0.5, 0, 0])
-          rotate([0, 180, 90]) clip(clipHeight = 10);
+          rotate([0, 180, 90]) clip(clipHeight = 10, clipDepth = 4);
         translate([offset + dimensions[0] - 0.5, 0, 0])
-          rotate([0, 180, 270]) clip(clipHeight = 10);
+          rotate([0, 180, 270]) clip(clipHeight = 10, clipDepth = 4);
       }
 
     }
