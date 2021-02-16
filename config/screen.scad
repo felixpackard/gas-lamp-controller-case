@@ -14,11 +14,11 @@ screen_width_offset = -1.7 / 2;
 screen_height_offset = -1.8 / 2;
 screen_and_button_offset = 10;
 
-screen_clip_depth = screen_thickness + 2.5;
+screen_clip_depth = screen_thickness + 3.5;
 screen_clip_lip_height = 3;
 screen_clip_lip_depth = 2.5;
 
 screen_clip_width = 3;
-screen_clip_height = screen_thickness + screen_clip_lip_height + 1;
+screen_clip_height = screen_thickness + screen_clip_lip_height + 0.4;
 
 screen_clip_offset = 3;
