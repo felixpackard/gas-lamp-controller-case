@@ -1,4 +1,5 @@
 // Arduino connectors library
+// Modified by Felix Packard
 //
 // Copyright (c) 2013 Kelly Egan
 //
